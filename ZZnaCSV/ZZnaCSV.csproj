@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BF460A7-D726-4735-BFE6-149F2C66E60E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZZnaCSV</RootNamespace>
+    <AssemblyName>ZZnaCSV</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\..\ADODB.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CdnHydra, Version=2020.2.0.0, Culture=neutral, PublicKeyToken=4b3653aa0a875d04, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Comarch ERP XL 2020.2\CdnHydra.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cdn_api20202.net">
+      <HintPath>..\..\cdn_api20202.net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICDNHeal, Version=2021.5.1.1618, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNHeal.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNHeal2, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNHeal2.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNKH, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNKH.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNKONFIGLib, Version=2021.5.1.1618, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNKONFIGLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNKPRR, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNKPRR.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNMail, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNMail.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNPlcfg, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNPlcfg.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNR2R, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNR2R.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNRabaty, Version=2021.5.1.1618, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNRabaty.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNResPr, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNResPr.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNSchematy, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNSchematy.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNSrtb, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNSrtb.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNTwrb1, Version=2021.5.1.1618, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNTwrb1.dll</HintPath>
+    </Reference>
+    <Reference Include="ICDNWypb, Version=2021.4.1.1252, Culture=neutral, PublicKeyToken=5179454a0b814fab, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Downloads\biblioteki\Nowy folder (2)\ICDNWypb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Com.Interop, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Twr.cs" />
+    <Compile Include="ZS.cs" />
+    <Compile Include="ZZnaCSV.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

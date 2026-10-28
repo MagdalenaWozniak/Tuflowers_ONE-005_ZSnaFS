@@ -1,0 +1,1525 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CdnHydra</name>
+    </assembly>
+    <members>
+        <member name="T:Hydra.XLPopupItem">
+            <summary>  
+             Klasa reprezentuję pojedynczą pozycję z menu rozwijanego
+            </summary>  
+        </member>
+        <member name="P:Hydra.XLPopupItem.sText">
+            <summary>Teksty wyświetlany w menu rozwijanym. W celu wstawienia sepraratora należy wpisać "-".</summary>
+            <remarks>Separator jest pomijany przy numerowaniu wybranej pozycji zwracanej przez menu rozwijane np.: jeżeli separator jest na pozycji 4 a na pozycji 5 jest "Pokaż" to wybór opcji "Pokaż" zwróci 4, a nie 5.</remarks>
+        </member>
+        <member name="P:Hydra.XLPopupItem.lPosition">
+            <summary>Pozycja na liście menu rozwijanego</summary>
+        </member>
+        <member name="P:Hydra.XLPopupItem.lLevel">
+            <summary>Poziom zagnieżdżenia. Pozwala tworzyć rozwijane podmenu</summary>
+        </member>
+        <member name="P:Hydra.XLPopupItem.sIcon">
+            <summary>Ikona wyświetlana po prawej stronie tekstu. Może być to ściezka do pliku .ico na dysku lub nazwa standardowej ikony XL'a poprzedzona znakiem ~, np.: "~lupa16.ico"</summary>
+        </member>
+        <member name="P:Hydra.XLPopupItem.bDisabled">
+            <summary>Określa czy pozycja jest nieaktywna, czyli niemożliwa do wybrania.</summary>
+        </member>
+        <member name="M:Hydra.XLPopupItem.ToString">
+            <summary>Zwraca string z zawartością pól klasy.</summary>
+        </member>
+        <member name="T:Hydra.XLPopup">
+            <summary>  
+             Klasa reprezentuje menu rozwijane
+            </summary>  
+        </member>
+        <member name="F:Hydra.XLPopup.lstItems">
+            <summary>Lista pozycji menu</summary>
+        </member>
+        <member name="M:Hydra.XLPopup.#ctor(System.String)">
+            <summary>
+            Konstruktor tworzący obiekt na podstawie definicji menu rozwijanego
+            </summary>
+            <param name="_sItems">Definicja menu rozwijanego zwracana przez Runtime.WindowController.GetPopup()</param>
+        </member>
+        <member name="M:Hydra.XLPopup.GetPopupString">
+            <summary>
+            Wykorzystywana do przekazania definicji menu rozwijanego do XL'a (za pomocą Runtime.WindowController.SetPopup()).
+            </summary>
+            <returns>Definicja menu rozwijanego utworzona na podstawie listy pozycji. </returns>
+        </member>
+        <member name="F:Hydra.Events.Accepted">
+            <summary>Zatwierdzanie kontrolki (przyciśnięcie przycisku, zmiana aktywności kontrolki po zmianie zawartości ...)</summary>
+        </member>
+        <member name="F:Hydra.Events.NewSelection">
+            <summary>Wybór nowej pozycji na liście, zmiana zakładki, zmiana wartości kontrolki typu Spin ...</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollUp">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM w górę o jedną pozycję.</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollDown">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM w dół o jedną pozycję.</summary>
+        </member>
+        <member name="F:Hydra.Events.PageUp">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM w górę o jedną stronę.</summary>
+        </member>
+        <member name="F:Hydra.Events.PageDown">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM w dół o jedną stronę.</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollTop">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM na pierwszą pozycję.</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollBottom">
+            <summary>Przesunięcie podświetlenia na liście z atrybutem IMM na ostatnią pozycj.ę</summary>
+        </member>
+        <member name="F:Hydra.Events.Locate">
+            <summary>Naciśnięcie przycisku lokatora na listach z atrybutem VCR.</summary>
+        </member>
+        <member name="F:Hydra.Events.MouseDown">
+            <summary>Naciśnięcie przycisku myszy w obszarze kontrolki typu REGION.</summary>
+        </member>
+        <member name="F:Hydra.Events.MouseUp">
+            <summary>Zwolnienie przycisku myszy w obszarze kontrolki typu REGION.</summary>
+        </member>
+        <member name="F:Hydra.Events.MouseIn">
+            <summary>Kursor myszy znalazł się w obszarze kontrolki typu REGION.</summary>
+        </member>
+        <member name="F:Hydra.Events.MouseOut">
+            <summary>Kursor myszy opuścił obszar kontrolki typu REGION.</summary>
+        </member>
+        <member name="F:Hydra.Events.MouseMove">
+            <summary>Kursor myszy poruszył się w obszarze kontrolki typu REGION.</summary>
+        </member>
+        <member name="F:Hydra.Events.AlertKey_ORG">
+            <summary>Wyzwolono skrót klawiszowy (zaznaczenie pozycji spacją, wpisanie znaku lokatora itp.).</summary>
+        </member>
+        <member name="F:Hydra.Events.PreAlertKey">
+            <summary>Wyzwolono skrót klawiszowy (występuje przed AlertKey).</summary>
+        </member>
+        <member name="F:Hydra.Events.Dragging">
+            <summary>Przeciąganie obiektu za pomocą kursora myszy. Występuje gdy kursor znajdzie się nad potencjalnym celem.</summary>
+        </member>
+        <member name="F:Hydra.Events.Drag">
+            <summary>Użytkownik wykonał przeciąganie obiektu za pomocą kursora myszy i zwolnił przycisk. Zdarzenie wysyłane do obiektu źródłowego.</summary>
+        </member>
+        <member name="F:Hydra.Events.Drop">
+            <summary>Użytkownik wykonał przeciąganie obiektu za pomocą kursora myszy i zwolnił przycisk. Zdarzenie wysyłane do obiektu docelowego.</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollDrag">
+            <summary>Użytkownik przesunął pasek przewijania listy i zwolnił przycisk myszy.</summary>
+        </member>
+        <member name="F:Hydra.Events.TabChanging">
+            <summary>Przed zmianą zakładki.</summary>
+        </member>
+        <member name="F:Hydra.Events.Expanding">
+            <summary>Kliknięcie na ikonę rozwinięcia gałęzi listy drzewiastej.</summary>
+        </member>
+        <member name="F:Hydra.Events.Contracting">
+            <summary>Kliknięcie na ikonę zwinięcia gałęzi listy drzewiastej.</summary>
+        </member>
+        <member name="F:Hydra.Events.Expanded">
+            <summary>Rozwinięcie gałęzi listy drzewiastej (Properties.MouseDownRow zwraca numer rozwiniętego wiersza).</summary>
+        </member>
+        <member name="F:Hydra.Events.Contracted">
+            <summary>Zwinięcie gałęzi listy drzewiastej (Properties.MouseDownRow zwraca numer zwiniętego wiersza).</summary>
+        </member>
+        <member name="F:Hydra.Events.Rejected">
+            <summary>Użytkownik wprowadził nieprawidłową wartość w kontrolce SPIN.</summary>
+        </member>
+        <member name="F:Hydra.Events.DroppingDown">
+            <summary>Użytkownik nacisnął przycisk rozwinięcia listy typu DROP.</summary>
+        </member>
+        <member name="F:Hydra.Events.DroppedDown">
+            <summary>Rozwinięcie listy typu DROP.</summary>
+        </member>
+        <member name="F:Hydra.Events.ScrollTrack">
+            <summary>Użytkownik przesuwa pasek przewijania listy.</summary>
+        </member>
+        <member name="F:Hydra.Events.ColumnResize">
+            <summary>Zmiana szerokości kolumny na liście.</summary>
+        </member>
+        <member name="F:Hydra.Events.Selected_ORG">
+            <summary>Kontrolka została aktywowana (uzyskała "focus").</summary>
+        </member>
+        <member name="F:Hydra.Events.CloseWindow">
+            <summary>Zamknięcie okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.CloseDown">
+            <summary>Zamknięcie okna na skutek zamknięcia całej aplikacji.</summary>
+        </member>
+        <member name="F:Hydra.Events.OpenWindow">
+            <summary>Otwarto okno i wyświetlono jego zawartość.</summary>
+        </member>
+        <member name="F:Hydra.Events.LoseFocus">
+            <summary>Utrata aktywności okna na rzecz innego wątku aplikacji.</summary>
+        </member>
+        <member name="F:Hydra.Events.GainFocus">
+            <summary>Odzyskanie aktywności okna od innego wątku aplikacji.</summary>
+        </member>
+        <member name="F:Hydra.Events.Suspend">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.Resume">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.Timer">
+            <summary>Zdarzenie cykliczne wykonywane co zadany interwał czasowy. Występuje na okna z atrybutem TIMER.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDErequest">
+            <summary>Serwer DDE(Dynamic Data Exchange) uzyskał żądanie od klienta.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEadvise">
+            <summary>Klient DDE(Dynamic Data Exchange) zażądał aktualizacji danych.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEdata">
+            <summary>Klient DDE(Dynamic Data Exchange) otrzymał dane z serwera.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEcommand">
+            <summary>Równoznacznik DDEexecute.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEexecute">
+            <summary>Klient DDE(Dynamic Data Exchange) wykonał polecenie DDEEXECUTE.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEpoke">
+            <summary>Klient DDE(Dynamic Data Exchange) wysłał opcjonalne dane.</summary>
+        </member>
+        <member name="F:Hydra.Events.DDEclosed">
+            <summary>Klient DDE(Dynamic Data Exchange) otrzymał informację o zakończeniu komunikacji przez serwer.</summary>
+        </member>
+        <member name="F:Hydra.Events.Move">
+            <summary>Przesuwanie okna z atrybutem IMM.</summary>
+        </member>
+        <member name="F:Hydra.Events.Size">
+            <summary>Rozpoczęcie zmiany rozmiaru okna z atrybutem IMM.</summary>
+        </member>
+        <member name="F:Hydra.Events.Restore">
+            <summary>Przywrócenie rozmiaru okna z atrybutem IMM.</summary>
+        </member>
+        <member name="F:Hydra.Events.Maximize">
+            <summary>Maksymalizacja okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Iconize">
+            <summary>Minimalizacja okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Completed">
+            <summary>Zakończono walidację wszystkich kontrolek na oknie przed jego zamknięciem (zakończenie trybu AcceptAll).</summary>
+        </member>
+        <member name="F:Hydra.Events.Moved">
+            <summary>Przesunięto okno.</summary>
+        </member>
+        <member name="F:Hydra.Events.Sized">
+            <summary>Zmieniono rozmiar okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Restored">
+            <summary>Przywrócono rozmiar okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Maximized">
+            <summary>Zmaksymalizowano okno.</summary>
+        </member>
+        <member name="F:Hydra.Events.Iconized">
+            <summary>Zminimalizowano rozmiar okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Docked">
+            <summary>Zakotwiczenie okna z atrybutem DOCK.</summary>
+        </member>
+        <member name="F:Hydra.Events.Undocked">
+            <summary>Uwolnienie okna z atrybutem DOCK.</summary>
+        </member>
+        <member name="F:Hydra.Events.BuildFile">
+            <summary>Rozpoczęcie wykonywania poleceń BUILD lub PACK na tabeli.</summary>
+        </member>
+        <member name="F:Hydra.Events.BuildKey">
+            <summary>Rozpoczęcie wykonywania poleceń BUILD lub PACK na kluczu.</summary>
+        </member>
+        <member name="F:Hydra.Events.BuildDone">
+            <summary>Zakończenie wykonywania poleceń BUILD lub PACK na kluczu.</summary>
+        </member>
+        <member name="F:Hydra.Events.User">
+            <summary>Pierwsze zdarzenie wolne - wszystkie zdarzenia o wartościach większych lub równych są pozasystemowe/definiowanie przez użytkownika.</summary>
+        </member>
+        <member name="F:Hydra.Events.AlertKey">
+            <summary>Wyzwolono skrót klawiszowy (zaznaczenie pozycji spacją, wpisanie znaku lokatora itp.)</summary>
+        </member>
+        <member name="F:Hydra.Events.LabelQuery">
+            <summary>Mała hydra - odczyt nazwy kontrolki za pomoca celownika.</summary>
+        </member>
+        <member name="F:Hydra.Events.ProcedureIdQuery">
+            <summary>Mała hydra - odczyt nazwy procedury za pomoca celownika.</summary>
+        </member>
+        <member name="F:Hydra.Events.JustAfterWindowOpening">
+            <summary>Zdarzenie występujące bezpośrdenio po utworzeniu okna i kontrolek, przed jego wyświetleniem. Zalecane miejsce inicjalizacji obiektów zależnych od okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.ReCalculate">
+            <summary>Przeliczenie wartości dokumentu.</summary>
+        </member>
+        <member name="F:Hydra.Events.UserEvent">
+            <summary>Zdarzenie służące do komunikacji między oknami np. między listą dokumentów a formatką dokumentu (gdy aktywna opcja "Zaawansowana obsługa okien")</summary>
+        </member>
+        <member name="F:Hydra.Events.FullRefresh">
+            <summary>Wymuszone odświeżenie okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.Refresh">
+            <summary>Odświeżenie okna (tylko kontrolek oznaczonych jako nieaktualne).</summary>
+        </member>
+        <member name="F:Hydra.Events.StartProcedure">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.PassingParams">
+            <summary>Przekazanie parametrów między wątkami.</summary>
+        </member>
+        <member name="F:Hydra.Events.ClientClosed">
+            <summary>Wysyłane do listy gdy zamykane jest okno dokumentu (przy włączonej opcji "Zaawansowana obsługa okien").</summary>
+        </member>
+        <member name="F:Hydra.Events.ResizeWindow">
+            <summary>Żądanie przeskalowania okna.</summary>
+        </member>
+        <member name="F:Hydra.Events.RefreshFrame">
+            <summary>Żądanie odświeżenia aplikacji po zmianach na oknach podrzędnych.</summary>
+        </member>
+        <member name="F:Hydra.Events.SaveInForm">
+            <summary>Odświeżenie listy po zapisie okna dokumentu (gdy włączona opcja "Zaawansowana obsługa okien").</summary>
+        </member>
+        <member name="F:Hydra.Events.NIM">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.DragDropRefresh">
+            <summary>Odświeżenie listy po Drag&amp;Drop.</summary>
+        </member>
+        <member name="F:Hydra.Events.CopyCutPasteRefresh">
+            <summary>Odświeżenie listy po skopiowaniu rekordu.</summary>
+        </member>
+        <member name="F:Hydra.Events.CatchException">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.BanProcedure">
+            <summary>Kontekstowe dodanie zakazu.</summary>
+        </member>
+        <member name="F:Hydra.Events.ExternalGIDCall">
+            <summary>Wywołanie formatki przez zewnętrzny proces.</summary>
+        </member>
+        <member name="F:Hydra.Events.BoUpdateFailed">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.BoUpdateOK">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.BoFetchFailed">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.BoFetchOK">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.BoChanged">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildClose">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildCancel">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildResponseYes">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildResponseNo">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildWindowMode">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ChildListSelect">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.ResizeGrid">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.LockWindow">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.UnlockWindow">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Events.Selected">
+            <summary>Kontrolka została aktywowana (uzyskała "focus").</summary>
+        </member>
+        <member name="F:Hydra.Events.Command">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.DelayedDown">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.GridChanged">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ItemSelection">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ToolboxDocked">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ToolboxLock">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ToolboxUnlock">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ToolboxDisable">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.ToolboxEnable">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.Window_First">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.Window_Last">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Events.XLPopup">
+            <summary>Przed rozwinięciem menu kontekstowego. Miejsce na modyfikację menu.</summary>
+        </member>
+        <member name="F:Hydra.Events.ReloadFromDB">
+            <summary>Żądanie odświeżenia obiektu danymi z bazy danych np. ponowne odczytanie listy atrybutów.</summary>
+        </member>
+        <member name="F:Hydra.Events.Last">
+            <summary>Maksymalna wartość liczbowa zdarzenia.</summary>
+        </member>
+        <member name="T:Hydra.HydraData">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkKartyDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkProceduryDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkKartyRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkProceduryRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkKartyRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Hydra.HydraData.ClbkProceduryRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="F:Hydra.Properties.Text">
+            <summary>Tekst wyświetlany w kontrolce - w zależności od typu może to być treść etykiety, format pola typu ENTRY czy też ścieżka do pliku graficznego dla kontrolki typu IMAGE.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Type">
+            <summary>Zwraca numeryczny typ kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.At">
+            <summary>Tablica 4 elementowa obszaru zajmowanego przez kontrolkę. Odpowiednio współrzędne x,y oraz szerokość i wysokość. Do odczytu metodą GetProp(int ControlId,Properties PropId,int SubPropId).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Xpos">
+            <summary>Współrzędna X kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ypos">
+            <summary>Współrzędna Y kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Width">
+            <summary>Szerokość kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Height">
+            <summary>Wysokość kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Center">
+            <summary>Czy tekst w kontrolce wyśrodkowany, lub - w przypadku okna - czy otwierać okno na środku ekranu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.CenterOffSet">
+            <summary>Przesunięcie tekstu względem środka kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Left">
+            <summary>Czy tekst w kontrolce wyrównany do lewej krawędzi. Ustawia również, w którym miejscu znajudą się zakładki na kontrolce typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LeftOffSet">
+            <summary>Przesunięcie tekstu względem lewej krawędzi kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Decimal">
+            <summary>Czy tekst w kontrolce wyrównany do separatora miejsc dziesiętnych.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DecimalOffSet">
+            <summary>Przesunięcie tekstu względem separatora miejsc dziesiętnych.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Right">
+            <summary>Czy tekst w kontrolce wyrównany do prawej krawędzi.</summary>
+        </member>
+        <member name="F:Hydra.Properties.RightOffSet">
+            <summary>Przesunięcie tekstu względem prawej krawędzi kontrolki. Ustawia również, w którym miejscu znajudą się zakładki na kontrolce typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Above">
+            <summary>Położenie zakładek na górze kontrolki typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AboveSize">
+            <summary>Rozmiar zakładek na górze kontrolki typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Below">
+            <summary>Położenie zakładek na dole kontrolki typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.BelowSize">
+            <summary>Rozmiar zakładek na dole kontrolki typu SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Class">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VBXFile">
+            <summary>Nieuzywane.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VBXName">
+            <summary>Techniczne.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Font">
+            <summary>Tablica 5 elementowa określająca czcionkę. Zawiera odpowiednio: krój (FontName), rozmiar (FontSize), kolor (FontColor), styl (FontStyle), stronę kodową. Do odczytu metodą GetProp(int ControlId,Properties PropId,int SubPropId).</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontName">
+            <summary>Nazwa czcionki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontSize">
+            <summary>Rozmiar czcionki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontColor">
+            <summary>Kolor czcionki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontStyle">
+            <summary>Styl czcionki (pogrubiony 0x2BC, pochylony 0x01000, podkreślony 0x02000, przekreślony 0x04000 itp.).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Range">
+            <summary>Tablica 2 elementowa określająca zakres wartości kontrolki typu Spin.Zawiera odpowiednio: RangeLow i RangeHigh.</summary>
+        </member>
+        <member name="F:Hydra.Properties.RangeLow">
+            <summary>Najmniejsza wartości kontrolki typu Spin.</summary>
+        </member>
+        <member name="F:Hydra.Properties.RangeHigh">
+            <summary>Najwiękjsza wartości kontrolki typu Spin.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VCR">
+            <summary>Czy wyświetlać pod listą przyciski poruszania się po rekordach.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VCRFeq">
+            <summary>Id kontrolki, która będzie aktywowana po naciśnięciu przycisku "?" - lokatora.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Double">
+            <summary>Określa styl ramki okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Resize">
+            <summary>Określa styl ramki okna i pozwala na zmianę jego rozmiaru.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoFrame">
+            <summary>Określa styl ramki okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.MM">
+            <summary>Określa jednostkę miary użytą do współrzędnych na raportach i oknach jako milimetry.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Thous">
+            <summary>Określa jednostkę miary użytą do współrzędnych na raportach i oknach jako tysięczne części cala.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Points">
+            <summary>Określa jednostkę miary użytą do współrzędnych na raportach i oknach jako punkty (72 punkty na 1 cal).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Pixels">
+            <summary>Określa czy właściwości odnoszące się do współrzędnych kontrolek są określane poprzez pixele czy jednostki graficzne (Dialog Units).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Sum">
+            <summary>Atrybut powoduje zsumowanie wartości kontrolki umieszczonej na raporcie clarionowym (kontrolka REPORT).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ave">
+            <summary>Atrybut powoduje policzenie średniej arytmetycznej wartości kontrolki umieszczonej na raporcie clarionowym (kontrolka REPORT).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Max">
+            <summary>Dla okna określa czy wyświetlać ikonę maksymalizacji okna. Dla raportu atrybut powoduje policzenie największej wartości kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Min">
+            <summary>Dla okna określa czy wyświetlać ikonę minimalizacji okna. Dla raportu atrybut powoduje policzenie najmniejszej wartości kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Cnt">
+            <summary>Dla raportu atrybut powoduje policzenie ile razy wystąpiła sekcja DETAIL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PageNo">
+            <summary>Dla raportu atrybut określa numer strony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Page">
+            <summary>Dla raportu zeruje pola MIN,MAX,AVE,SUM,CNT przy nowej stronie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Absolute">
+            <summary>Określa, że nagłówek, stopka i szczegóły raportu drukują się zawsze w określonym miejscu na stronie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Alone">
+            <summary>Atrybut ALONE (PROP: ALONE) określa, że struktura DETAIL lub grupa HEADER lub FOOTER (zawarta w strukturze BREAK) jest drukowana na stronie bez jakiegokolwiek formatu lub strony HEADER lub FOOTER (nie w strukturze BREAK).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Preview">
+            <summary>Określa wyjście raportu do metaplików Windows zawierających jedną stronę raportu w pliku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FlushPreview">
+            <summary>Wypisuje metadane PREVIEW atrybutu REPORT z drukarką</summary>
+        </member>
+        <member name="F:Hydra.Properties.First">
+            <summary>Określa położenie elementu menu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Last">
+            <summary>Określa położenie elementu menu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ins">
+            <summary>Określa sposób wprowadzania znaków w pola edycyjne - dopisywanie (tryb domyślny).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ovr">
+            <summary>Określa sposób wprowadzania znaków w pola edycyjne - nadpisywanie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Boxed">
+            <summary>Czy wyświetlać ramkę wokół kontrolek TEXT,GROUP i OPTION.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Cap">
+            <summary>Ustawia aby pierwsze litery wyrazów podczas wprowadzania tekstu były duże.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Column">
+            <summary>Określa czy podświetlenie rekordu na liście obejmuje cały wiersz czy tylko wskazaną kolumnę.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Cursor">
+            <summary>Określa rodzaj wskaźnika myszy wyświetlanego dla wskazanego okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Default">
+            <summary>Przycisk z atrybutem DEFAULT jest naciskany automatycznie po naciśnięciu klawisza enter na formatce.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Disable">
+            <summary>Czy kontrolka jest nieaktywna ("wyszarzona").</summary>
+        </member>
+        <member name="F:Hydra.Properties.Drop">
+            <summary>Ile elementów listy typu DROP jest widocznych jednocześnie po rozwinięciu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Fill">
+            <summary>Kolor wypełnienia kontrolek BOX,ELLIPSE i PANEL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.From">
+            <summary>Źródło danych dla listy - tylko do zapisu. Pozwala wypełnić danymi listę podając wartości oddzielone znakami "|" - ilość kolumn określa właściwość Format</summary>
+        </member>
+        <member name="F:Hydra.Properties.Full">
+            <summary>Ustala wartość maksymalną dla niewypełnionej szerokości i wysokości kontrolki (właściwości Width i Height)</summary>
+        </member>
+        <member name="F:Hydra.Properties.Gray">
+            <summary>Ustala szare tło oraz wygląd 3D dla okien.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Hide">
+            <summary>Czy kontrolka jest ukryta.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Hlp">
+            <summary>Określa rozdział w pomocy programu związany z daną kontrolką (słowo kluczowe lub kontekst).</summary>
+        </member>
+        <member name="F:Hydra.Properties.HScroll">
+            <summary>Obecność poziomego paska przewijania na kontrolce.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Icon">
+            <summary>Ikona wyświetlana na kontrolce (ścieżka do pliku na dysku lub identyfikator zasobu z bibliotek dll porzedzony znakiem "~").</summary>
+        </member>
+        <member name="F:Hydra.Properties.Iconize">
+            <summary>Czy otwierać okno zminimalizowane.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Imm">
+            <summary>Natychmiastowe generowanie zdarzeń dla kontrolek - szerszy opis w dokumentacji Clarion.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Key">
+            <summary>Klawisz skrótu dla kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Landscape">
+            <summary>Orientacja pozioma raportu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Mark">
+            <summary>Pozwala zaznaczać przed podświetlenie wiele rekordów listy.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Mask">
+            <summary>Określa czy walidować znaki wprowadzane przez użytkownika już podczas wpisywania. Przestawienie na otwartym oknie wpłynie wyłącznie na nowo-kreowane kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Maximize">
+            <summary>Czy otwierać okno zmaksymalizowane.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Mdi">
+            <summary>Czy otwierać okno w trybie MDI (tryb domyślny). Okna MDI są oknami potomnymi dla aplikacji, czyli wymagają istnienia aktywnego okna głównego (FRAME).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Modal">
+            <summary>Nieużywane.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Msg">
+            <summary>Opis kontrolki wyświetlany na pasku stanu pokna głównego, w czasie gdy kontrolka jest aktywna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoBar">
+            <summary>Określa czy podświetlenie listy ma być aktywne gdy lista nie jest aktywna (gdy focus na innej kontrolce).</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoMerge">
+            <summary>Określa czy pasek narzędzi okna MDI ma się łączyć z paskiem okna głównego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PageAfter">
+            <summary>Wskazuje, czy kontrolka typu MenuBar albo ToolBar ma się nie łączyć z globalnym Menu albo ToolBar.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PageAfterNum">
+            <summary>Określa, że struktura zostaje wydrukowana, a następnie inicjuje przeładowanie strony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PageBefore">
+            <summary>Określa, że struktura będzie drukowana na nowej stronie po przepełnieniu strony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PageBeforeNum">
+            <summary>Określa, że struktura zostanie wydrukowana na nowej stronie, po przeładowaniu strony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Password">
+            <summary>Czy wyświetlać znaki * zamiast tekstu wpisanego w pole ENTRY (maskowanie haseł).</summary>
+        </member>
+        <member name="F:Hydra.Properties.ReadOnly">
+            <summary>Czy kontrolka jest w trybie tylko do odczytu. Tryb ten pozwala zaznaczać i kopiować tekst, ale blokuje jego zmiany.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Req">
+            <summary>Czy kontrolka jest wymagana - czyli musi być wypełniona wartością w czasie walidacji okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Reset">
+            <summary>Atrybut RESET (PROP: RESET) określa grupowe przerwanie, w którym CNT, SUM, AVE, MIN lub MAX zeruje się.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Round">
+            <summary>Czy zaokrąglać rogi kontrolki BOX.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Scroll">
+            <summary>Określa czy kontrolka powinna się przesuwać gdy jest przewijana zawartość okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Skip">
+            <summary>Pomijaj kontrolkę przy zmianie aktywnej kontrolki za pomocą klawisza TAB.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Std">
+            <summary>Wykonaj akcję standardową po wybraniu - lista akcji standardowych w dokumentacji Clarion.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Step">
+            <summary>O jaką wartość zmieniać pole SPIN przy użyciu strzałek.</summary>
+        </member>
+        <member name="F:Hydra.Properties.System">
+            <summary>Obecność menu systemowego okna (przyciski minimalizacji, maksymalizacji, zamykania).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Format">
+            <summary>Określa format listy.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Timer">
+            <summary>Z jaką częstotliwością generować zdarzenie Timer dla okna (setne części sekundy). 0 oznacza brak generacji.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Check">
+            <summary>Pozycja menu typu check. Ustala znacznik zaznaczenia po lewej stronie pozycji przy wybranej opcji oraz jego brak przy niewybranej.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Trn">
+            <summary>Przezroczyste tło kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Upr">
+            <summary>Wymusza wprowadzanie tekstu dużymi literami.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VScroll">
+            <summary>Obecność pionowego paska przewijania.</summary>
+        </member>
+        <member name="F:Hydra.Properties.WithNext">
+            <summary>Właściwość określa obecność poziomego paska przewijania</summary>
+        </member>
+        <member name="F:Hydra.Properties.WithPrior">
+            <summary>Określa, że struktura zostanie wydrukowana na tej samej stronie, co struktury drukowane zaraz po niej</summary>
+        </member>
+        <member name="F:Hydra.Properties.Items">
+            <summary>Ilość widocznych elementów na liście.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Selected">
+            <summary>Numer podświetlonej pozycji na liście lub pozycja pierwszego zaznaczonego znaku w kontrolce tekstowej (odpowiednik SelStart).</summary>
+        </member>
+        <member name="F:Hydra.Properties.SelStart">
+            <summary>Pozycja pierwszego zaznaczonego znaku w kontrolce tekstowej.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SelEnd">
+            <summary>Pozycja ostatniego zaznaczonego znaku w kontrolce tekstowej.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Auto">
+            <summary>Powoduje automatyczne odświeżenie wszyskich kontrolek na okno po obsłudze każdego zdarzenia. Wpływa negatywnie na wydajność ale gwarantuje wyświetlanie aktualnych danych.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ToolBox">
+            <summary>Wyświetlanie okna "zawsze na wierzchu".</summary>
+        </member>
+        <member name="F:Hydra.Properties.Palette">
+            <summary>Określa, w jakim schemacie kolorów ma się wywołać okno</summary>
+        </member>
+        <member name="F:Hydra.Properties.ImageBits">
+            <summary>Właściwość kontrolki IMAGE, która pozwala na wyświetlenie obrazu z mapy bitowej w kontrolce.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Thread">
+            <summary>Zwraca numer wątku okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Handle">
+            <summary>Zwraca okno lub kontrolny uchwyt do użycia z niskopoziomowymi wywołaniami systemu Windows API, które tego wymagają.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Active">
+            <summary>Zwraca 1, jeśli okno jest aktywne</summary>
+        </member>
+        <member name="F:Hydra.Properties.VBXEvent">
+            <summary>Właściwość WINDOW, która zwraca uchwyt okna klienta (obszar okna zawierający elementy sterujące) do użycia z niskopoziomowymi wywołaniami API systemu Windows, które tego wymagają.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Follows">
+            <summary>Zmienia kolejność kontrolek. Kontrolka jest wywoływana po ID kontroli wpisanej w tej właściwości.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AcceptAll">
+            <summary>Określa wywołanie opcji "zatwierdź wszystko". Dla wartości 1 opcja jest aktywna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Touched">
+            <summary>Przy wartości 1 sprawdza, czy w kontrolce typu: Entry, Text, Spin albo Combo została zmieniona wartość od ostatneigo zaistnienia zdarzenia Accepted.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VScrollPos">
+            <summary>Określa pozycję poziomego paska przesuwania.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ClipBits">
+            <summary>Określa, czy w kontrolce typu IMAGE można skopiować mapę bitową obrazu do schowka.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Tip">
+            <summary>Określa tekst, który wyświetla się po najechaniu kursorem na kontrolkę.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ToolTip">
+            <summary>Określa tekst, który wyświetla się po najechaniu kursorem na kontrolkę.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LFNSupport">
+            <summary>Właściwość wbudowanej zmiennej systemowej w programach 16-bitowych, która zwraca jeden (1), jeśli system operacyjny obsługuje długie nazwy plików i pusty łańcuch (''), jeśli nie. 32-bitowe systemy operacyjne obsługują długie nazwy plików</summary>
+        </member>
+        <member name="F:Hydra.Properties.Progress">
+            <summary>Określa stan postępu w kontrolce PROGRESS.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Visible">
+            <summary>Określa czy kontrolka jest widoczna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Enabled">
+            <summary>Określa, czy kontrolka jest aktywna</summary>
+        </member>
+        <member name="F:Hydra.Properties.Wizard">
+            <summary>Określa kontrolkę typu SHEET, która nie wyświelta swoich kontrolek TAB.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ChoiceFEQ">
+            <summary>Określa aktualnie wybrane pole na aktulnie wybranej kontrolce TAB na kontrolce SHEET albo aktualne wybrane RADIO na kontrolce OPTION </summary>
+        </member>
+        <member name="F:Hydra.Properties.ClientHandle">
+            <summary>Właściwość WINDOW, która zwraca uchwyt okna klienta (obszar okna zawierający elementy sterujące) do użycia z niskopoziomowymi wywołaniami API systemu Windows, które tego wymagają. (TYLKO DO ODCZYTU)</summary>
+        </member>
+        <member name="F:Hydra.Properties.LineCount">
+            <summary>Zwraca liczbę linii w kontrolce TEXT albo liczbę rekordów w kontolce LIST</summary>
+        </member>
+        <member name="F:Hydra.Properties.MinWidth">
+            <summary>Zwraca minimalną szerokość okna</summary>
+        </member>
+        <member name="F:Hydra.Properties.MinHeight">
+            <summary>Zwraca minimalną wysokość okna</summary>
+        </member>
+        <member name="F:Hydra.Properties.MaxWidth">
+            <summary>Zwraca maksymalną szerokość okna</summary>
+        </member>
+        <member name="F:Hydra.Properties.MaxHeight">
+            <summary>Zwraca maksymalną wysokość okna</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoTips">
+            <summary>Włącza/wyłącza obsługę wyświetlania podpowiedzi (TOOLTIP)</summary>
+        </member>
+        <member name="F:Hydra.Properties.TipDelay">
+            <summary>Określa czas, po którym podpowiedź się wyświetli</summary>
+        </member>
+        <member name="F:Hydra.Properties.TipDisplay">
+            <summary>Określa czas trwania wyświetlenia podpowiedzi</summary>
+        </member>
+        <member name="F:Hydra.Properties.WNDProc">
+            <summary>Ustawia lub pobiera okno (a nie obszar klienta) lub procedurę przesyłania wiadomości określonego sterowania do użycia z niskopoziomowymi połączeniami z systemem Windows API, które tego wymagają. Ogólnie używany w podklawie do śledzenia wszystkich wiadomości systemu Windows.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ClientWNDProc">
+            <summary>Właściwość WINDOW, która ustawia lub pobiera okno komunikatora klienta (bez uwzględnienia nazwy lub obszaru stanu), do użytku z niskopoziomowymi wywołaniami API systemu Windows, które tego wymagają. Ogólnie używany z podklawą do śledzenia wszystkich wiadomości systemu Windows.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ImageBlob">
+            <summary>Pozwala na przemieszczenie map bitowych obrazów w ramach pól o typi BLOB</summary>
+        </member>
+        <member name="F:Hydra.Properties.Spread">
+            <summary>Określa, czy kontrolki na kontrolce TAB kontrolki SHEET są równo rozmieszczone.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Size">
+            <summary>Określa rozmiar pola BLOB</summary>
+        </member>
+        <member name="F:Hydra.Properties.ScreenText">
+            <summary>Określa tekst wyśweitlany na ekranie w określonej kontrolce.</summary>
+        </member>
+        <member name="F:Hydra.Properties.HScrollPos">
+            <summary>Określa pozycję pionowego paska przesuwania.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LazyDisplay">
+            <summary>Włącza/wyłącza opcję lazy loading</summary>
+        </member>
+        <member name="F:Hydra.Properties.DeferMove">
+            <summary>Odracza możliwość resize'u okna do czasu zakończenia zdarzenia Accepted</summary>
+        </member>
+        <member name="F:Hydra.Properties.AppInstance">
+            <summary>Zwraca instancję pliku .exe</summary>
+        </member>
+        <member name="F:Hydra.Properties.Value">
+            <summary>Zwraca wartość określonej OPTION w ramach kontrolki RADIO</summary>
+        </member>
+        <member name="F:Hydra.Properties.TrueValue">
+            <summary>Stała ciągu zawierająca wartość przypisaną do zmiennej USE CHECK, gdy użytkownik zaznaczył pole</summary>
+        </member>
+        <member name="F:Hydra.Properties.FalseValue">
+            <summary>Stała ciągu zawierająca wartość przypisaną do zmiennej USE CHECK, gdy użytkownik zaznaczy pole</summary>
+        </member>
+        <member name="F:Hydra.Properties.DDETimeOut">
+            <summary>Określa wartość czasu (w milisekundach) dla operacji DDE</summary>
+        </member>
+        <member name="F:Hydra.Properties.TabRows">
+            <summary>Zwraca liczbę wierszy w kontrolkach TAB w ramach określonej kontrolki SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NumTabs">
+            <summary>Zwraca liczbę kontrolek TAB w ramach określonej kontrolki SHEET.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LibVersion">
+            <summary>Zwraca numer wersji CLARION RTL DLL</summary>
+        </member>
+        <member name="F:Hydra.Properties.ExeVersion">
+            <summary>Zwraca informacje o wersji pliku .exe wykreowanego przez Clarion.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Create">
+            <summary>Określa, że plik (po zadeklarowaniu) może być utworzony na dysku poprzez aplikację</summary>
+        </member>
+        <member name="F:Hydra.Properties.SaveAs">
+            <summary>ZApisuje obiekt do pliku typu OLE Compound Storage</summary>
+        </member>
+        <member name="F:Hydra.Properties.Open">
+            <summary>Określa mozliwość otwarcia zapisanego obiektu z pliku typu OLE Compound Storage dla kontrolki OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Blob">
+            <summary>Obsługuje konwersję obiektu do/z BLOB</summary>
+        </member>
+        <member name="F:Hydra.Properties.DoVerb">
+            <summary>Wykonuje polecenie overb OLE z następującego zestawu poleceń (TYLKO DO ZAPISU):
+            DOVERB: Podstawowy (0)
+            Wywołuje podstawowe działanie obiektu. Obiekt, a nie pojemnik, określa to działanie. Jeśli obiekt obsługuje aktywację w miejscu, główny czasownik zazwyczaj aktywuje obiekt na miejscu.
+            DOVERB: Pokaż (-1)
+            Powoduje wyświetlenie obiektu do edycji lub wyświetlenia. Wywoływane, aby wyświetlić nowo wstawione obiekty do wstępnej edycji i pokazywania źródeł linków. Zwykle jest to alias niektórych innych czynności zdefiniowanych przez użytkownika.
+            DOVERB: otwarte (-2)
+            Powoduje otwarcie obiektu do edycji w oddzielnym oknie z kontenera (dotyczy to obiektów obsługujących aktywację w miejscu). Jeśli obiekt nie obsługuje aktywacji w miejscu, ma to samo działanie co DOVERB: Pokaż.
+            DOVERB: Ukryj (-3)
+            Powoduje usunięcie interfejsu użytkownika. Dotyczy to tylko obiektów aktywowanych na miejscu.
+            DOVERB: UActivate (-4)
+            Aktywuje obiekt na miejscu, wraz z pełnym zestawem narzędzi interfejsu użytkownika, w tym menu, pasków narzędzi i ich nazwy w pasku tytułowym okna kontenera.
+            DOVERB: InPlaceActivate (-5)
+            Aktywuje obiekt w miejscu bez wyświetlania narzędzi (menu i pasków narzędzi), które użytkownicy końcowi muszą zmienić zachowanie lub wygląd obiektu.
+            DOVERB: DiscardUndoState (-6)
+            Powoduje, że obiekt odrzucił stan cofnięcia, który może utrzymywać bez dezaktywowania obiektu.
+            DOVERB: Właściwości (-7)
+            Wywołuje przeglądarkę właściwości systemu modalnego dla obiektu umożliwiającą użytkownikowi ustawienie jej właściwości.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SelectInterface">
+            <summary>Określa wybór interfejsu w celu zastosowania go do obiektu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AddRef">
+            <summary>Inkrementuje liczbę odwołań do interfejsu</summary>
+        </member>
+        <member name="F:Hydra.Properties.Release">
+            <summary>Dekrementuje liczbę odwołań do interfejsu</summary>
+        </member>
+        <member name="F:Hydra.Properties.Deactivate">
+            <summary>Deaktywuje obiekt OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Update">
+            <summary>Określa, żeby obiekt OLE sma się aktualizował</summary>
+        </member>
+        <member name="F:Hydra.Properties.Paste">
+            <summary>Wkleja obiekt ze schowka do kontrolki OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.ReportException">
+            <summary>Zwraca wyjątek OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.PasteLink">
+            <summary>Wkleja i łączy obiekt ze schowka z kontrolką OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Copy">
+            <summary>Kopiuje obiekt z kontrolki OLE do schowka</summary>
+        </member>
+        <member name="F:Hydra.Properties.CanPaste">
+            <summary>Nadaje uprawnienia do wklejania obiektu</summary>
+        </member>
+        <member name="F:Hydra.Properties.CanPasteLink">
+            <summary>Nadaje uprawnienia do wklejania i połączenia obiektu</summary>
+        </member>
+        <member name="F:Hydra.Properties.DesignMode">
+            <summary>Określa czy kontrolka znajduje się w trybie projektowania</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ctrl">
+            <summary>Określa, cyz kontrolka jest kontrolką typu .OCX</summary>
+        </member>
+        <member name="F:Hydra.Properties.OLE">
+            <summary>Określa czy kontrolka jest obiektem typu OCX czy OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.IsRadio">
+            <summary>Określa czy kontrolka to radio button</summary>
+        </member>
+        <member name="F:Hydra.Properties.LastEventName">
+            <summary>Pobiera nazwę ostatneigo zdarzenia wysłanego do kontrolki .OCX</summary>
+        </member>
+        <member name="F:Hydra.Properties.BevelStyle">
+            <summary>Określa całokształt kontrolki. Jest to mapa bitowa</summary>
+        </member>
+        <member name="F:Hydra.Properties.Join">
+            <summary>Określa wyświetlania kontrolek TAB w ramach jednej kotnrolki SHEET w jednej linii (bez względu na ilość kontrolek).</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoSheet">
+            <summary>Określa, że kontroli typu TAB wyświetlają się bez widocznej kontrolki SHEET</summary>
+        </member>
+        <member name="F:Hydra.Properties.Bevel">
+            <summary>Określa ramkę 3-D dla kontrolki</summary>
+        </member>
+        <member name="F:Hydra.Properties.BevelOuter">
+            <summary>Określa długość zewnętrznego końca ramki 3-D</summary>
+        </member>
+        <member name="F:Hydra.Properties.BevelInner">
+            <summary>Określa długość wewnętrznego końca ramki 3-D</summary>
+        </member>
+        <member name="F:Hydra.Properties.LineWidth">
+            <summary>określa grubość linii w kontrolkach: LINE, BOX i ELLIPSE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Angle">
+            <summary>Określa, pod jakim kątem będzie wyświetlany ciąg znaków w kontrolce.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AutoSize">
+            <summary>Określa automatyczne skalowanie obiektu OLE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Clip">
+            <summary>Wyświetlane jest tylko to, co zawiera się w wielkości kontrolki</summary>
+        </member>
+        <member name="F:Hydra.Properties.Stretch">
+            <summary>Obiekt rozciąga się, aby pokryć obszar całej kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Zoom">
+            <summary>Atrybut włączający/wyłączajacy możliwość powiększenia</summary>
+        </member>
+        <member name="F:Hydra.Properties.Compatibility">
+            <summary>Określa kompatybilność kontrolki OLE.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Design">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.Document">
+            <summary>Określa czy obiekt zostanie utworzony z pliku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Link">
+            <summary>Określa, czy zostanie utworzony link do pliku z obiektem</summary>
+        </member>
+        <member name="F:Hydra.Properties.CreateFromFile">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.CreateLinkToFile">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.Align">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.Cancel">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.TextAlign">
+            <summary>Określa położenie tekstu w kontrolce</summary>
+        </member>
+        <member name="F:Hydra.Properties.Object">
+            <summary>Pobiera interfejs dyspozytorski dla obiektu. (TYLKO DO ODCZYTU)W programie VB pasek narzędzi i sterowanie drzewem umożliwia sterowanie listą obrazów w celu wyświetlenia ikon w kontrolce drzewa i przycisków na pasku narzędzi.</summary>
+        </member>
+        <member name="F:Hydra.Properties.License">
+            <summary></summary>
+        </member>
+        <member name="F:Hydra.Properties.Language">
+            <summary>Numer używanego języka</summary>
+        </member>
+        <member name="F:Hydra.Properties.Color">
+            <summary>Określa kolor tła kontrolki</summary>
+        </member>
+        <member name="F:Hydra.Properties.SelectedColor">
+            <summary>Określa kolor tekstu przy zaznaczeniu</summary>
+        </member>
+        <member name="F:Hydra.Properties.SelectedFillColor">
+            <summary>Określa kolor tła przy zaznaczeniu</summary>
+        </member>
+        <member name="F:Hydra.Properties.LineHeight">
+            <summary>Zwraca wysokość wierszy w kontrolkach LIST i COMBO.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DropWidth">
+            <summary>Określa długość rozwiniętej listy.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AlwaysDrop">
+            <summary>W przypadku wstawienia wartości '0' lista rowija sie tylko przy kliknięciu w przycisk rozwijania. W przypadku wartości innej niż '0' lista rozwija się także po kliknięciu klawisza "strzałki w dół.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Up">
+            <summary>Określa orientację tekstu w kontrolce TAB w postaci pionowej czytanej z dołu do góry</summary>
+        </member>
+        <member name="F:Hydra.Properties.Down">
+            <summary>Określa orientację tekstu w kontrolce TAB w postaci pionowej czytanej z góry do dołu</summary>
+        </member>
+        <member name="F:Hydra.Properties.UpsideDown">
+            <summary>Określa orientację tekstu w kontrolce TAB w postaci pionowej czytanej odwrotnie</summary>
+        </member>
+        <member name="F:Hydra.Properties.HeaderHeight">
+            <summary>Zwraca wysokość nagłówka w kontrolce LIST lub COMBO.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Checked">
+            <summary>Zwraca stan kontolki CHECK - "zaznaczony"</summary>
+        </member>
+        <member name="F:Hydra.Properties.AutoPaper">
+            <summary>Ustawia i zwraca stan automatycznej opcji wyboru najlepszego papieru w raporcie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Single">
+            <summary>Określa, że w kontrolce można wpisać dane w pojedynczej linii</summary>
+        </member>
+        <member name="F:Hydra.Properties.Parent">
+            <summary>Zwraca kontrolkę-rodzica dla danej kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Repeat">
+            <summary>Określa powtarzanie zdarzeń na kontrolkach po pewnym interwale czasowym.</summary>
+        </member>
+        <member name="F:Hydra.Properties.EventsWaiting">
+            <summary>Zwraca informację, czy dla okna istnieją jakieś oczekujące zdarzenia.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DDEmode">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która umożliwia ustawienie normalnego zachowania zdarzenia DDE (0, wartość domyślna), przy czym wszystkie zdarzenia DDE są wysyłane do okna, które otworzyło kanał DDE lub jedno (1), które powoduje wszystkie zdarzenia DDE Do wysłania do górnego okna bieżącego wątku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Threading">
+            <summary>Przy wartości '0' zmieniany jest typ aplikacji z MDI na SDI</summary>
+        </member>
+        <member name="F:Hydra.Properties.TempNameFunc">
+            <summary>Właściwość raportu, który umożliwia tworzenie własnych nazw dla metaplików wygenerowanych dla atrybutu PREVIEW, wpisując funkcję wywołania zwrotnego w celu dostarczenia nazwy metafile dla każdej strony raportu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Delay">
+            <summary>Określa interwał czasowy między wywołaniem kolejnych zdarzeń.</summary>
+        </member>
+        <member name="F:Hydra.Properties.BreakVar">
+            <summary>Ustawia zmienną dla struktury BREAK w raporcie RAPORT.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Use">
+            <summary>Atrybut USE (PROP: USE) określa etykietę równoważną pola dla formantu lub struktury lub zmienną dla kontrolki, która ma zostać zaktualizowana.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FEQ">
+            <summary>PROP: Feq ustawia i zwraca numer pola dla kontroli.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ListFEQ">
+            <summary>PROP: ListFeq jest równoważny {PROP: USE, 3} i ustawia etykietę równoważną pola dla listy części kontrolki COMBO lub kontrolki LIST z atrybutem DROP.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ButtonFEQ">
+            <summary>PROP: ButtonFeq jest równowaSny z {PROP: USE, 4} i ustawia etykietę równoważną pola dla przycisku upuściowego kontrolki COMBO (nie dotyczy listy rozwijanej listy).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Flat">
+            <summary>Określa, czy kontrolka typu BUTTON, RADIO lub CHECK jest płaska do momentu, gdy uzytkownik najedzie na nią kursorem. </summary> 
+        </member>
+        <member name="F:Hydra.Properties.WallPaper">
+            <summary>Określa obraz dla tła kontrolki typu Toolbar lub okna</summary>
+        </member>
+        <member name="F:Hydra.Properties.Tiled">
+            <summary>Określa, że kontrolka IMAGE lub tło okna albo kontrolki ToolBar są rozmieszczone sąsiadująco (na zasadzie "kafli") </summary>
+        </member>
+        <member name="F:Hydra.Properties.Centered">
+            <summary>Okresla, że kontrolka IMAGE, tło okna albo kontroli ToolBar wyświetla się w domyślnym rozmiarze w pozycji wyśrodkowanej.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ChildIndex">
+            <summary>Zwraca numer kontrolki-dziecka w ramach danej kontrolki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.InToolBar">
+            <summary>Zwraca informację, czy kontrolka jets częścią kontrolki ToolBar.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PrintMode">
+            <summary>PROP: PrintMode jest właściwością określonej kontrolki obrazu (lub SYSTEM dla wszystkich), która określa, w jaki sposób przypisanie właściwości PROP: ImageBlob przechowuje obrazy w BLOB.</summary>
+        </member>
+        <member name="F:Hydra.Properties.RejectCode">
+            <summary>ENTRY, TEXT, COMBO lub SPIN, która zwraca ostatnią wartość REJECTCODE wartość ustawioną na EVENT: Odrzucone. PROP: RejectCode jest trwały, podczas gdy procedura REJECTCODE zwraca prawidłową wartość podczas EVENT: Odrzucone.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VLBProc">
+            <summary>Zwraca źródłową procedurę dla kontrolki typu "Virtual List Box" LIST lub COMBO.</summary>
+        </member>
+        <member name="F:Hydra.Properties.VLBVal">
+            <summary>określa źródłowy obiekt dla kontrolki typu "Virtual List Box" LIST lub COMBO</summary>
+        </member>
+        <member name="F:Hydra.Properties.TempImage">
+            <summary>Właściwość kontrolki IMAGE, która zwraca nazwę pliku, który generuje dla obrazu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.TempPath">
+            <summary>Zwraca ścieżkę do pliku tymczasowego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.TempPagePath">
+            <summary>Zwraca ścieżkę do pliku tymczasowego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.TempImagePath">
+            <summary>Właściwość kontrolki IMAGE, która zwraca ścieżkę do pliku tymczasowego z obrazem.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LibHook">
+            <summary>Zwraca tablicę procedur, które można nadpisać własnymi procedurami</summary>
+        </member>
+        <member name="F:Hydra.Properties.ColorDialogHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury COLORDIALOG.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FileDialogHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury FILEDIALOG.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontDialogHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury FONTDIALOG.</summary>
+        </member>
+        <member name="F:Hydra.Properties.PrinterDialogHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury PRINTERDIALOG.</summary>
+        </member>
+        <member name="F:Hydra.Properties.HaltHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury HALT.</summary>
+        </member>
+        <member name="F:Hydra.Properties.MessageHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury MESSAGE.</summary>
+        </member>
+        <member name="F:Hydra.Properties.StopHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury STOP.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AssertHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury ASSERT.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FatalErrorHook">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisującą dla wewnętrznej procedury FATALERROR.</summary>
+        </member>
+        <member name="F:Hydra.Properties.CharSet">
+            <summary>Określa rodzaj kodowania</summary>
+        </member>
+        <member name="F:Hydra.Properties.FontCharSet">
+            <summary>Określa rodzaj kodowania czcionki.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SystemPropHook">
+            <summary>Właściwość wbudowanej w system zmiennej, która pozwala na pułapkę, gdy system {property} jest wywoływany.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AssertHook2">
+            <summary>Właściwość wbudowanej zmiennej systemowej, która ustawia procedurę nadpisania wewnętrznej procedury ASSERT firmy Clarion.</summary>
+        </member>
+        <member name="F:Hydra.Properties.InitAStringHook">
+            <summary>Właściwość wbudowanej w system zmiennej systemowej, która pozwala na skonfigurowanie procedury, aby automatycznie zainicjować wartości TIE po raz pierwszy przypisano określoną wartość parametru ASTRING</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoWidth">
+            <summary>Przywrócenie domyślnej szerokości okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoHeight">
+            <summary>Przywrócenie domyslnej wysokości okna.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NextPageNo">
+            <summary>Zwraca/określa kolejny numer strony w raporcie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.XOrigin">
+            <summary>Określa odległość, o jaką kontrolka została przesunięta w poziomie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.YOrigin">
+            <summary>Określa odległość, o jaką kontrolka została przesunięta w pionie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Target">
+            <summary>Właściwość określa nowy cel.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Together">
+            <summary>Atrybut TOGETHER (PROP: TOGETHER) określa, że struktura SZCZEGÓŁOWA lub grupa HEADER lub FOOTER (zawarta w strukturze BREAK) jest drukowana tylko na jednej stronie, a nie jest automatycznie dzielona, jeśli nie ma wystarczającej ilości miejsca na to.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Dock">
+            <summary>Określa rodzaj kontrolki ToolBox, którą można 'przypiąć' do jednego z krańców okna aplikacji.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Docked">
+            <summary>Określa, czy kontrolka typu ToolBox jest przyłączona do ściany okna aplikacji w momencie jej uruchomienia.</summary>
+        </member>
+        <member name="F:Hydra.Properties.GlobalHelp">
+            <summary>Blokuje automatyczne zamknięcie okna pomocy (plik .HLP) w stuacji, gdy zamknięte zostaje okno, które wywolało okno pomocy.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Buffer">
+            <summary>Właściwość okna, która pozwala na wybranie wykończeń tła.</summary>
+        </member>
+        <member name="F:Hydra.Properties.clientx">
+            <summary>Zwraca poziomą pozycję lewego górnego rogu obszaru klienckiego</summary>
+        </member>
+        <member name="F:Hydra.Properties.clienty">
+            <summary>Zwraca pionową pozycję lewego górnego rogu obszaru klienckiego</summary>
+        </member>
+        <member name="F:Hydra.Properties.clientwidth">
+            <summary>Zwraca szerokość obszaru klienckiego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.clientheight">
+            <summary>Zwraca wysokość obszaru klienckiego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Status">
+            <summary>Określa, cyz wyświetlany jest pasek stanu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.StatusText">
+            <summary>Tekst wyśweitlany na pasku stanu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DragID">
+            <summary>Określa kontrolkę LIST albo REGION, która można przeciągnąć dane do innej kontrolki na zasadzie 'przeciągnij i upuść'</summary>
+        </member>
+        <member name="F:Hydra.Properties.DropID">
+            <summary>Określa kontrolkę LIST albo REGION, na której można upuścić dane z kontrolki z określonym DragID</summary>
+        </member>
+        <member name="F:Hydra.Properties.Edit">
+            <summary>Określa pole w kontrolce typu LISt, gdzie mozna zastosować 'edit-in-place'</summary>
+        </member>
+        <member name="F:Hydra.Properties.Alrt">
+            <summary>określenie klawisza, na którego wciśnięcie kontrolka zareaguje.</summary>
+        </member>
+        <member name="F:Hydra.Properties.IconList">
+            <summary>Tabliza zwracająca ikony z listy sformatowanej do wyświetlania ikon.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Line">
+            <summary>Tablica, której elementy zawierają po jednej linii tekstu z kontrolki TEXT.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Tally">
+            <summary>Atrybut TALLY (PROP: TALLY) określa, kiedy obliczyć AVE, CNT, MAX, MIN lub SUM.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Child">
+            <summary>Zwraca numer kontrolki-dziecka w strukturze kontrolek-rodzica (SHEET, TAB, OPTION, GROUP)</summary>
+        </member>
+        <member name="F:Hydra.Properties.NextField">
+            <summary>Tablia zwracająca numer kolejnej kontroli w ramach sekwencji okna lub raportu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SnapWidth">
+            <summary>Ustala szerokość dowolnego okna lub kontrolki toolbox, gdy ich rozmiar zostanie zmieniony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SnapHeight">
+            <summary>Ustala wysokość dowolnego okna lub kontrolki toolbox, gdy ich rozmiar zostanie zmieniony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.CurrentKey">
+            <summary>Zwraca aktualny klawisz, ktory został użyty w sekwencji.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Logout">
+            <summary>Ustala lub zwraca priorytet, w jakim dane zdarzenie zostanei zalogowane w zewnętrznym pliku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Log">
+            <summary>Właściwość logujaca określony tekst do zewnętrznego pliku tekstowego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Profile">
+            <summary>Właściowość włączajaca/wyłączająca logowanie błędów i operacji w osobnym pliku testowym.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Details">
+            <summary>Włącza/wyłącza logowanie buforu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Watched">
+            <summary>Właściwość zwracająca informację, czy dany rekord jest obserwowany.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Held">
+            <summary>Zwraca informację, czy aktualny rekord jest trzymany.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ProgressEvents">
+            <summary>Generuje zdarzenia związane z zapisem pliku na dysku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Completed">
+            <summary>Zwraca procent wykonanai operacji BUILD lub PACK dla których właściwość 'ProgressEvents' została włączona.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Driver">
+            <summary>Określa jaki sterownik plików jest wykorzystywany przez dany plik</summary>
+        </member>
+        <member name="F:Hydra.Properties.DriverLogsoutAlias">
+            <summary>Właściwość pliku, który zwraca, czy sterownik plików pozwala instrukcji LOGOUT na wymianę zarówno pliku, jak i aliasu pliku w tym samym oświadczeniu (TYLKO DO ODCZYTU).</summary>
+        </member>
+        <member name="F:Hydra.Properties.Keys">
+            <summary>Zwraca liczbę deklaracji klawiszy w strukturze kontrolki FILE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Blobs">
+            <summary>Zwraca liczbę pól obiektów typu BLOB w strukturze kontrolki FILE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Memos">
+            <summary>Zwraca liczbę pól obiektów typu BMEMO w strukturze kontrolki FILE</summary>
+        </member>
+        <member name="F:Hydra.Properties.Fields">
+            <summary>Zwraca liczbę wszystkich pól.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Encrypt">
+            <summary>Określa, czy dane mają być wygenerowane w zaszyfrowanym pliku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DriverString">
+            <summary>Składnia właściwości jest analogczna jak dla funkcji SEND.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Owner">
+            <summary>Określa właściciela FILE Statement.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Name">
+            <summary>Określa zewnętrzną nazwę.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Label">
+            <summary>Zwraca etykietę deklaracji.</summary>
+        </member>
+        <member name="F:Hydra.Properties.OEM">
+            <summary>The OEM attribute (PROP:OEM) specifies that the FILE on which it is placed contains non-English language string data that was stored by a DOS based program or needs to be read by a DOS based program.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Reclaim">
+            <summary>Atrybut RECLAIM w instrukcji FILE. Atrybut przełączania, który zawiera ciąg pusty (''), jeśli nieobecny, oraz '1' jeśli jest obecny.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SQLDriver">
+            <summary>Właściwość pliku, która zwraca 1, jeżeli jego sterownik obsługuje SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.FileSize">
+            <summary>Zwraca rozmmiar pliku w bajtach.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SupportsOp">
+            <summary>Zwraca informacje, czy określona funkcja jest obsługiwana przez sterownik.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SupportsType">
+            <summary>Zwraca informację, cyz dany typ danych jest obsługiwany przez sterownik.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Components">
+            <summary>Zwraca wszystkie komponenty klucza lub indeksu</summary>
+        </member>
+        <member name="F:Hydra.Properties.Dup">
+            <summary>Atrybut DUP w instrukcji KEY. Atrybut przełączania, który zawiera ciąg pusty (''), jeśli jest niezdefiniowany, oraz '1' jeśli jest określony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Opt">
+            <summary>Atrybut OPT na instrukcji KEY lub INDEX. Atrybut przełączania, który zawiera ciąg pusty (''), jeśli jets niezdefiniowany, oraz '1' jeśli jest określony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.NoCase">
+            <summary>Atrybut NOCASE na instrukcji KEY lub INDEX. Atrybut przełączania, który zawiera ciąg pusty (''), jeśli jest niezdefiniowany, oraz '1' jeśli jest określony.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Primary">
+            <summary>Określa, czy klucz jest kluczem podstawowym.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Field">
+            <summary>Zwraca numer pola.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Ascending">
+            <summary>Tablica określająca, czy struktura plików znajduje się w porządku rosnącym, czy też nie.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Binary">
+            <summary>Zwraca atrybut binarny.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Places">
+            <summary>Tablica zwracająca liczbę miejsc dziesiętnych zadeklarowanych dla pól typu DECIMAL i PDECIMAL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Dim">
+            <summary>Właściwość tablicy pliku zwracającego produkt o wymiarach tablicy określonych w atrybucie DIM w określonym polu.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Over">
+            <summary>Właściwość tablicy pliku, która zwraca numer pola pola, do którego odwołuje się atrybut OVER w określonym polu</summary>
+        </member>
+        <member name="F:Hydra.Properties.Order">
+            <summary>Określa typ sortowania rekordów w widoku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Filter">
+            <summary>Określa filtr wykorzystywany w widoku</summary>
+        </member>
+        <member name="F:Hydra.Properties.JoinExpression">
+            <summary>Pozwala na zastosowanie wyrażenia JOIN w celu pobrania danych z kilku różnych plików.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Files">
+            <summary>Właściwość zwracająca całkowitą liczbę plików w danym widoku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.File">
+            <summary>Tablia zwracająca odwołanie do określonego pliku w ramach widoku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Inner">
+            <summary>Pozwala na zastosowanie SQL JOIN w postaci INNER JOIN zamiast domyślnego LEFT OUTER JOIN</summary>
+        </member>
+        <member name="F:Hydra.Properties.SQL">
+            <summary>Pozwala na włączenie/wyłączenie możliwości stosowania zapytań SQL w aplikacji.</summary>
+        </member>
+        <member name="F:Hydra.Properties.OrderAllTables">
+            <summary>Ustawienie PROP: OrderAllTables na True wymusza na sterowniku Accelerator SQL wykorzystanie pól powiązanych i drugorzędnych plików, a także głównych składowych plików podstawowego w klauzuli ORDER BY, która wysyła do serwera.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SQLFilter">
+            <summary>Pozwala na wykorzystanie filtrowania poprzez SQL</summary>
+        </member>
+        <member name="F:Hydra.Properties.LogFile">
+            <summary>Włącza/wyłącza logowanie operacji i błędów do zewnętrznego pliku tekstowego.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Where">
+            <summary>Pozwala na zastosowanie klauzuli SQL WHERE</summary>
+        </member>
+        <member name="F:Hydra.Properties.FetchSize">
+            <summary>Własność pliku lub widoku, który ustawia lub pobiera parametr pagesize dla ostatniej instrukcji BUFFER.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Alias">
+            <summary>PROP: Alias to właściwość pliku odczytu / zapisu, która ustawia lub zwraca alias, który sterownik programu SQL Accelerator używa podczas generowania instrukcji SELECT dla widoku.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Disconnect">
+            <summary>Rozłącza połączenie z bazą danych.</summary>
+        </member>
+        <member name="F:Hydra.Properties.SQLOrder">
+            <summary>Pozwala na wykorzystanie ORDER BY SQL</summary>
+        </member>
+        <member name="F:Hydra.Properties.SQLJoinExpression">
+            <summary>Pozwala na wykorzystanie wyrażenia JOIN SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.Hint">
+            <summary>Zwraca okno podpowiedzi SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.ConnectString">
+            <summary>Zwraca ConnectionString</summary>
+        </member>
+        <member name="F:Hydra.Properties.LoginTimeOut">
+            <summary>Właściwość określa limit czasu wyświetlania okna loga SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.HENV">
+            <summary>PROP: henv zwraca bieżący henv (uchwyt środowiskowy) używany przez sterownik SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.HDBC">
+            <summary>PROP: hdbc zwraca bieżący hdbc używany przez sterownik SQL</summary>
+        </member>
+        <member name="F:Hydra.Properties.HSTMT">
+            <summary>PROP: hstmt zwraca bieżący hstmt używany przez sterownik SQL. Tak więc mojFilter {PROP: hstmt} może być używany do wywołań ODBC API wymagających hstmt.</summary>
+        </member>
+        <member name="F:Hydra.Properties.OrderInSelect">
+            <summary>Przy wartości 'true' sterownik sprawdza dla każdych widoków, czy w warunku ORDER BY zapytań SQL znajdują się wszystkie kolumny wybrane przy zapytaniu SELECT.</summary>
+        </member>
+        <member name="F:Hydra.Properties.QuoteString">
+            <summary>QuoteString ustawia lub zwraca separator nazwy kolumny (przeważnie cytat), który sterownik Accelerator SQL używa do otaczania nazw kolumn w swoich generowanych instrukcjach SQL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.LogonScreen">
+            <summary>Ustala lub zwraca wartość definiującą, czy sterownik automatycznie loguje informacje.</summary>
+        </member>
+        <member name="F:Hydra.Properties.AlwaysRebind">
+            <summary>AlwaysRebind ustawia lub zwraca przełącznik, który kontroluje, czy akcelerator SQL przywraca miejsca pamięci, gdy zmieni się stan NULL.</summary>
+        </member>
+        <member name="F:Hydra.Properties.DBMSver">
+            <summary>Zwraca ciąg znaków wskazujący wersję DBMS dostępną dla sterownika.</summary>
+        </member>
+        <member name="F:Hydra.Properties.IsolationLevel">
+            <summary>Definiuje poziom izolacji transakcji</summary>
+        </member>
+        <member name="F:Hydra.Properties.MaxStatements">
+            <summary>Właściwość pliku, który pozwala sprawdzić, ile instrukcji może być aktywnych przed wywołaniem nowego połączenia z bazą danych.</summary>	
+        </member>
+        <member name="F:Hydra.Properties.FullBuild">
+            <summary>FULLBUILD = ON Informuje następną instrukcję BUILD, aby w pełni odbudować klucze. FULLBUILD = OFF powoduje przywrócenie BUILD do zoptymalizowanego stanu. Obie wersje polecenia SEND zwracają aktualny stan kompilacji jako ciąg "ON" lub "OFF".</summary>
+        </member>
+        <member name="P:Hydra.RepositoryManager.DbConnection">
+            <summary>Połączenie z bazą SQL (dla wersji Postgres oraz MSSQL) z uprawnieniami do odczytu</summary>
+        </member>
+        <member name="P:Hydra.RepositoryManager.Connection">
+            <summary>Połączenie z bazą MSSQL z uprawnieniami do odczytu</summary>
+        </member>
+        <member name="M:Hydra.WindowController.GetPopup">
+            <summary>
+            Metoda zwraca definicję aktualnie rozwijanego menu - zdarzenie Events.XLPopup
+            </summary>
+            <returns>Obiekt reprezentujący menu rozwijane</returns>
+        </member>
+        <member name="M:Hydra.WindowController.GetPopupChoice(System.Int32)">
+            <summary>
+            Zwraca numer pozycji menu rozwijanego wybranej przez użytkownika
+            </summary>
+            <param name="ControlId">Id kontrolki, dla której jest rozwijane menu</param>
+            <returns>Numer pozycji z menu rozwijanego</returns>
+        </member>
+        <member name="M:Hydra.WindowController.GetPopupItem(System.Int32)">
+            <summary>
+            Zwraca pozycję menu rozwijanego wybraną przez użytkownika
+            </summary>
+            <param name="ControlId">Id kontrolki, dla której jest rozwijane menu</param>
+            <returns>Pozycja menu rozwijanego. Obiekt XLPopupItem</returns>
+        </member>
+        <member name="M:Hydra.WindowController.SetPopupChoice(System.Int32,System.Int32)">
+            <summary>
+            Pozwala ustalić/zmienić pozycję menu rozwijanego wybraną przez użytkownika
+            </summary>
+            <param name="ControlId">Id kontrolki, dla której jest rozwijane menu</param>
+            <param name="Choice">Numer pozycji do wybrania</param>
+        </member>
+        <member name="M:Hydra.WindowController.SetPopup(Hydra.XLPopup)">
+            <summary>
+            Zapisuje definicję menu rozwijanego
+            </summary>
+            <param name="_oPopup">Obiekt reprezentujący menu rozwijane</param>
+        </member>
+    </members>
+</doc>

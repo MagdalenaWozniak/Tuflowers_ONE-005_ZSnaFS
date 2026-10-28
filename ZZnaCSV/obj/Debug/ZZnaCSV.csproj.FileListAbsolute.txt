@@ -1,0 +1,154 @@
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\bin\Debug\cdn_api20202.net.dll
+C:\OneSupport\ExtraDach\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csprojAssemblyReference.cache
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csprojAssemblyReference.cache
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.Threading.AccessControl.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.pdb
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.Data.Tools.Com.Interop.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\CDNImportGUS.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.xml
+C:\Users\magdaw\Documents\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.Data.Tools.Com.Interop.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Threading.AccessControl.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\CDNImportGUS.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.pdb
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csprojAssemblyReference.cache
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\XL_Excel\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.Data.Tools.Com.Interop.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\CDNImportGUS.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.AktualizacjaCen.resources
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.GenerateResource.cache
+C:\Users\magdaw\Documents\TuFlowers\Ceny\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.AssemblyReference.cache
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.Data.Tools.Com.Interop.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\CDNImportGUS.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.AssemblyReference.cache
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll.config
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\ZZnaCSV.pdb
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\ADODB.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.Data.Tools.Com.Interop.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\CDNImportGUS.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\CdnHydra.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Buffers.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Memory.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\Npgsql.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\bin\Debug\System.ValueTuple.xml
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.AssemblyReference.cache
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CoreCompileInputs.cache
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.csproj.CopyComplete
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.dll
+C:\Users\magdaw\Documents\TuFlowers\ZSnaFS — nowe\ZZnaCSV\ZZnaCSV\obj\Debug\ZZnaCSV.pdb
